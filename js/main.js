@@ -44,6 +44,23 @@ function Drop(e) {
 }
 
 
+
+
+function resetPeices() {
+    // Remove all puzzle pieces from drop zones and append them back to puzzle-pieces container
+    dropZones.forEach(zone => {
+        if (zone.firstChild) {
+            const puzzlePieces = Array.from(zone.children);
+            puzzlePieces.forEach(piece => {
+                document.querySelector('.puzzle-pieces').appendChild(piece);
+            });
+        } else {
+            // Do nothing cause i don't need it
+        }
+    });
+}
+
+
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 
 
