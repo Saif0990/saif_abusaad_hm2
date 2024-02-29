@@ -32,13 +32,10 @@ function DragOver(e) {
 function Drop(e) { 
     e.preventDefault();
     console.log('dropped a peice on me');
-    
-    // Check if the drop zone already contains a puzzle piece
     if (this.children.length === 0) {
         this.appendChild(draggedPiece);
     } else {
         console.log('Drop zone already contains a puzzle piece');
-        // Append the dragged piece back to the puzzle-pieces container
         document.querySelector('.puzzle-pieces').appendChild(draggedPiece);
     }
 }
@@ -47,16 +44,14 @@ function Drop(e) {
 
 
 function resetPeices() {
-    // Remove all puzzle pieces from drop zones and append them back to puzzle-pieces container
     dropZones.forEach(zone => {
         if (zone.firstChild) {
             const puzzlePieces = Array.from(zone.children);
             puzzlePieces.forEach(piece => {
                 document.querySelector('.puzzle-pieces').appendChild(piece);
             });
-        } else {
-            // Do nothing cause i don't need it
-        }
+        } 
+
     });
 }
 
