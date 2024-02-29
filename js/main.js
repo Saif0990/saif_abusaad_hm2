@@ -61,6 +61,30 @@ function resetPeices() {
 }
 
 
+
+function changeBGImage() {
+    let bgImagePath = `url(images/backGround${this.id}.jpg)`;
+    puzzleBoard.style.backgroundImage = bgImagePath;
+    
+	puzzlePieces.forEach((piece, index) => {
+		if (index === 0) {
+		  piece.src = `images/topLeft${this.id}.jpg`;
+		} else if (index === 1) {
+		  piece.src = `images/topRight${this.id}.jpg`;
+		} else if (index === 2) {
+		  piece.src = `images/bottomLeft${this.id}.jpg`;
+		} else if (index === 3) {
+		  piece.src = `images/bottomRight${this.id}.jpg`;
+		}
+	  });
+
+
+	  resetPeices();
+
+   
+}
+
+
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 
 
